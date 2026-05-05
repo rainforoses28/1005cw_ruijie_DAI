@@ -36,6 +36,21 @@ plot(time,Temperature,'k-');
 xlabel('Time (s)');
 ylabel('Temperature (degree)');
 title('Temperature variation in 10 mimutes');
+%d)e)
+fileID=fopen('capsule_temperature.txt','w');
+fprintf(fileID,'Data logging initiated - %s\n',char(current_date));
+fprintf(fileID,'Location - %.s \n\n',Location);
+for minutes=0:10
+    index_seconds=60*minutes+1;
+    fprintf(fileID,'Minute\t\t%d\n',minutes);
+    fprintf(fileID,'Temperature\t%.2f C\n\n',Temperature(1,index_seconds));
+end
+fprintf(fileID,'Max temp\t%.2f C\n',Temperature_max);
+fprintf(fileID,'Min temp\t%.2f C\n',Temperature_min);
+fprintf(fileID,'Average temp\t%.2f C\n\n',Average_temperature);
+fprintf(fileID,'Data logging terminated\n');
+fclose(fileID);
+
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
