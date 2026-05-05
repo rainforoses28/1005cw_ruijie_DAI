@@ -11,7 +11,26 @@ writeDigitalPin(a,'D4',0)
 end
 
 %% TASK 1 - READ TEMPERATURE DATA, PLOT, AND WRITE TO A LOG FILE [20 MARKS]
-
+%b)
+duration=600;
+j=0;
+time=linspace(1,duration+1,duration+1);
+Voltage=zeros(1,duration+1);
+Temperature=zeros(1,duration+1);
+T_c=0.01;
+V_0deg=0.5;
+Location=input('Please enter your location','s');
+current_date=datetime('now','Format','mm/dd/yyyy');
+while j<=duration;
+    j=j+1;
+    A0_voltage = readVoltage(a, 'A0');
+    Voltage(1,j)=A0_voltage;
+    Temperature(1,j)=(Voltage(1,j)-V_0deg)/T_c;
+    pause(1)
+ end
+Temperature_min=min(Temperature)
+Temperature_max=max(Temperature)
+Average_temperature=mean(Temperature)
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
