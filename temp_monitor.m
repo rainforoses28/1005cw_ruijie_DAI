@@ -1,8 +1,8 @@
 function temp_monitor(a)
-Time_record=[];
-Temperature_record=[];
+Time_record=[];  
+Temperature_record=[];  
 T_c=0.01; 
-V_0deg=0.5;
+V_0deg=0.5;  
 tic;
 figure;
 Green_LED='D3';
@@ -12,6 +12,12 @@ while true
     Time_test=toc;
     A0_voltage = readVoltage(a, 'A0');
     Temperature_current=(A0_voltage-V_0deg)/T_c;
+    Time_record=[Time_record,Time_test];
+    Temperature_record=[Temperature_record,Temperature_current];
+    plot(Time_record,Temperature_record,'k-')
+    xlabel('Time(seconds)');
+    ylabel('Temperature(Degree)');
+    title('Real-time Temperature Monitoring');
     if Time_test>20
           xlim([Time_test-20,Time_test+5]);
     end
