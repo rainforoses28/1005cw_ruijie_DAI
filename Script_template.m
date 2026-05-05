@@ -31,6 +31,11 @@ while j<=duration;
 Temperature_min=min(Temperature)
 Temperature_max=max(Temperature)
 Average_temperature=mean(Temperature)
+%c)
+plot(time,Temperature,'k-');
+xlabel('Time (s)');
+ylabel('Temperature (degree)');
+title('Temperature variation in 10 mimutes');
 %% TASK 2 - LED TEMPERATURE MONITORING DEVICE IMPLEMENTATION [25 MARKS]
 
 % Insert answers here
