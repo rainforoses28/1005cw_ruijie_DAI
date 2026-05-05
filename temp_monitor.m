@@ -19,15 +19,21 @@ while true
     Time_test=Time_test+1;
     if Temperature_record>=18 & Temperature_record<=24
           writeDigitalPin(a,Green_LED,1)
+          writeDigitalPin(a,Red_LED,0)
+          writeDigitalPin(a,Yellow_LED,0)
           pause_time=1
     elseif Temperature_record<18
              writeDigitalPin(a,Yellow_LED,1)
+             writeDigitalPin(a,Red_LED,0)
+             writeDigitalPin(a,Green_LED,0)
              pause(0.5)
              writeDigitalPin(a,Yellow_LED,0)
              pause(0.5)
              pause_time=0
     else
           writeDigitalPin(a,Red_LED,1)
+          writeDigitalPin(a,Yellow_LED,0)
+          writeDigitalPin(a,Green_LED,0)
           pause(0.25)
           writeDigitalPin(a,Red_LED,0)
           pause(0.25)
